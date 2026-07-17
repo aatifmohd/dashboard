@@ -23,7 +23,7 @@ export const verifyToken = (token:string):{userId:string} =>{
     return jwt.verify(token,JWT_SECRET) as {userId:string}
 }
 
-export const getCurrentUser = async():Promise<User |null>=>{
+export const getCurrentUser = async():Promise<User|null>=>{
     try{
         const cookieStore = await cookies();
         const token = cookieStore.get("token")?.value
